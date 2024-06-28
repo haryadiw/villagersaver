@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "";
+}
+
+@{
+    var viewData = (ViewModel)ViewData["viewData"];
+}
+
+<form asp-action="Index">
+
+    <div class="mt-5">
+        <table class="table tb-vs">
+            <tr>
+                <th width="20%"></th>
+                <th width="20%">Age of Death</th>
+                <th width="20%">Year of Death</th>
+                <th width="20%" class="text-center">Year of Born</th>
+                <th width="20%" class="text-center">People Killed</th>
+            </tr>
+            <tr>
+                <th align="left">Person A</th>
+                <td>
+                    <input type="number" name="pa_agedeath" value="@viewData?.PersonA?.AgeOfDeath" class="form-control" placeholder="Age of Death">
+                </td>
+                <td>
+                    <input type="number" name="pa_yeardeath" value="@viewData?.PersonA?.YearOfDeath" class="form-control" placeholder="Year of Death">
+                </td>
+                <td align="center">@viewData?.PersonA?.YearOfBorn</td>
+                <td align="center">@viewData?.PersonA?.PeopleKilled</td>
+            </tr>
+            <tr>
+                <th align="left">Person B</th>
+                <td>
+                    <input type="number" name="pb_agedeath"  value="@viewData?.PersonB?.AgeOfDeath" class="form-control" placeholder="Age of Death">
+                </td>
+                <td>
+                    <input type="number" name="pb_yeardeath"  value="@viewData?.PersonB?.YearOfDeath" class="form-control" placeholder="Year of Death">
+                </td>
+                <td align="center">@viewData?.PersonB?.YearOfBorn</td>
+                <td align="center">@viewData?.PersonB?.PeopleKilled</td>
+            </tr>
+            <tr>
+                <th colspan="4" align="left">Total People Killed</th>
+                <td align="center">@viewData?.TotalPeopleKilled</td>
+            </tr>
+            <tr>
+                <th colspan="4" align="left">Average People Killed</th>
+                <td align="center">@viewData?.AvgPeopleKilled</td>
+            </tr>
+        </table>
+        <button type="submit" class="btn btn-primary mt-2">Calculate</button>
+    </div>
+
+</form>
